@@ -1,3 +1,8 @@
+---
+name: todo
+description: Persistent markdown-based task management for AI agents. Use this skill when the user wants to manage tasks, add TODOs, check what's open, mark tasks done, or maintain a personal task list across sessions.
+---
+
 # AI TODO Skill
 
 A persistent, markdown-based task management system for AI agents.
