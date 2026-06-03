@@ -21,6 +21,27 @@ The agent will initialize `~/.todo/` on first run.
 
 See [`todo/SKILL.md`](todo/SKILL.md) for the full specification.
 
+### `notepad` — AI Note Enhancement
+
+A Granola-style notepad. You type scrappy, fragmentary notes; the agent turns
+them into structured, polished notes while preserving every word you wrote
+verbatim in a `## Raw` block.
+
+**How it works:**
+- On first use, the agent asks where to store notes — an existing Obsidian
+  vault, any folder you choose, or a default (`~/Documents/notepad-ai`)
+- The choice is remembered in `~/.config/ai-notepad/config` — no hardcoded paths
+- One markdown file per note, catalogued in `INDEX.md` (newest-first, capped)
+- Optional transcript merging: anchors define what you cared about, the
+  transcript fills in the detail you didn't write down
+- Works with plain markdown anywhere; uses Obsidian wikilinks/callouts/Bases
+  when the backend is a vault
+
+**Quick start:** Copy `notepad/SKILL.md` (and `notepad/templates/`) into your
+agent's skill set. The agent runs first-run setup the first time you save a note.
+
+See [`notepad/SKILL.md`](notepad/SKILL.md) for the full specification.
+
 ## Philosophy
 
 These skills follow a few principles:
