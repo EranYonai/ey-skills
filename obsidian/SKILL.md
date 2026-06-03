@@ -1,6 +1,6 @@
 ---
 name: obsidian
-description: Create and edit Obsidian vault content — Obsidian Flavored Markdown (.md), Bases (.base), and JSON Canvas (.canvas). Use this skill when working with Obsidian files, wikilinks, callouts, frontmatter, tags, embeds, Base views, filters, formulas, Canvas mind maps, or any Obsidian-specific syntax.
+description: Create and edit Obsidian vault content — Obsidian Flavored Markdown (.md), Bases (.base), and JSON Canvas (.canvas). Use this skill when working with Obsidian files, wikilinks, callouts, frontmatter, tags, embeds, Base views, filters, formulas, Canvas mind maps, building a no-database knowledge base / RAG vault (raw → wiki → master-index), or any Obsidian-specific syntax.
 ---
 
 # Obsidian Skill
@@ -777,6 +777,153 @@ See [EXAMPLES.md](references/EXAMPLES.md) for full canvas examples including min
 
 ---
 
+## Part 4: No-Database RAG Vault (Karpathy pattern)
+
+A vault structured so an LLM agent can answer questions against a corpus far
+larger than its context window — **without** a vector database, embeddings,
+chunking, or a retrieval pipeline. The *folder structure is the index*; the
+agent does the retrieval by reading at most three files. This is the canonical
+description of the convention; other skills (e.g. the notepad skill) defer here.
+
+> **Scale cutoff:** this approach is ideal for roughly 500–2,000 documents
+> (~1M tokens). Below that it beats a real RAG on simplicity and cost. Above
+> it, migrate to an embedding-based system — the markdown is already clean input
+> for one.
+
+### The three-layer structure
+
+```
+vault/
+  AGENTS.md                      <- navigation rules the agent loads first
+  raw/                           <- staging / input zone (clippings, notes, research)
+  wiki/                          <- compiled knowledge base (output zone)
+    _master-index.md            <- table of contents: every topic, one line each
+    <topic>/
+      _index.md                  <- lists every article in this topic
+      <Article Title>.md         <- compiled article, cross-linked with [[wikilinks]]
+  archive/                       <- optional: retired material
+```
+
+- **`raw/`** — anything unprocessed lands here first: web clippings, PDFs,
+  pasted research, captured notes. Never the agent's retrieval target except as
+  a fallback.
+- **`wiki/`** — clean articles organized by topic, each cross-linked with
+  `[[wikilinks]]`. This is what queries traverse.
+- **`_master-index.md`** — the single file at `wiki/` root listing every topic
+  with a one-line description. The LLM's table of contents.
+- **`<topic>/_index.md`** — per-topic catalog listing every article in it.
+
+### Three-read retrieval
+
+Any fact is reachable in three reads, no matter how big the vault gets:
+
+1. Read `wiki/_master-index.md` → identify the topic.
+2. Read `wiki/<topic>/_index.md` → identify the article.
+3. Read the article → answer. Follow its `[[wikilinks]]` to pull in related
+   articles for free (the graph-traversal piece — no new search needed).
+
+Encode this exact path in `AGENTS.md` so the agent doesn't re-derive it (or
+waste tokens with `ls`/glob) on every request.
+
+### The compile step (raw → wiki)
+
+A deliberate, batch operation — usually triggered by the user saying
+`compile`:
+
+1. List unprocessed material in `raw/`.
+2. Read `_master-index.md` (and only the relevant `<topic>/_index.md` files).
+3. Categorize each raw item by topic; create a new topic folder only when
+   genuinely new. **Prefer few broad topics over many tiny ones.**
+4. Write/update the `wiki/<topic>/<Article>.md` — *synthesize*, don't copy;
+   cross-link with `[[wikilinks]]`; include a **Sources** section linking back
+   to the raw items.
+5. Update `<topic>/_index.md` and `_master-index.md`.
+6. Mark raw items compiled (e.g. `compiled: YYYY-MM-DD` frontmatter); never
+   delete `raw/` — it's the permanent verbatim record.
+
+### Index file formats
+
+`_master-index.md` and each `_index.md` are plain markdown wikilink tables —
+LLM-friendly and viewable without Obsidian. Link into a subfolder index with
+`[[wiki/<topic>/_index|<topic>]]`.
+
+```markdown
+# Wiki — Master Index
+
+| Topic | What's in it |
+|-------|--------------|
+| [[wiki/sales/_index\|sales]] | Prospects, deals, discovery calls. |
+| [[wiki/hiring/_index\|hiring]] | Candidates and interview notes. |
+```
+
+Optionally add a live `.base` view (Part 2) for human browsing — but keep the
+markdown indexes as the agent's source of truth for traversal.
+
+### Article schema
+
+```markdown
+---
+title: AllFound Account
+topic: sales
+tags:
+  - wiki
+  - sales
+updated: 2026-06-03
+---
+
+# AllFound Account
+
+> [!abstract] Summary
+> One- to three-line synopsis.
+
+## Background
+- Synthesized bullets, cross-linked to [[Tuesday.ai]].
+
+## Sources
+- [[raw note or clipping this was built from]]
+```
+
+### The AGENTS.md (vault-root instruction file)
+
+The equivalent of Karpathy's `CLAUDE.md`. It lives at the vault root and tells
+any agent: the folder conventions, the three-read traversal rule, and the
+compile rules — so the agent navigates correctly without exploring the vault
+first. Minimal skeleton:
+
+```markdown
+# Vault Agent Guide
+
+This vault is a no-database knowledge base. Do not glob the whole vault.
+
+## Layout
+- `raw/`  — unprocessed input (staging). Never edit; only read or mark compiled.
+- `wiki/` — compiled articles by topic. The answer source.
+
+## Answering a question (three reads)
+1. Read `wiki/_master-index.md` → pick topic.
+2. Read `wiki/<topic>/_index.md` → pick article.
+3. Read the article; follow [[wikilinks]] for related context.
+If not yet compiled, grep `raw/` and offer to compile.
+
+## Compiling (`compile`)
+Read `raw/`, categorize by topic, write/update `wiki/<topic>/` articles with
+[[wikilinks]] + a Sources section, update both index levels, mark raw compiled.
+```
+
+### When to use this vs. a real RAG
+
+| | No-database vault | Embedding RAG (LightRAG, etc.) |
+|---|---|---|
+| Corpus size | < ~2,000 docs | thousands+ |
+| Infra | folder + AGENTS.md | vector DB, embeddings, pipeline |
+| Cost | agent tokens only | DB + embedding + hosting |
+| Retrieval | 3 file reads | cosine similarity lookup |
+
+Start with the vault. If it breaks under scale, migrate — the clean markdown is
+exactly what an embedding system wants as input.
+
+---
+
 ## References
 
 ### Obsidian Markdown
@@ -796,3 +943,8 @@ See [EXAMPLES.md](references/EXAMPLES.md) for full canvas examples including min
 ### JSON Canvas
 - [JSON Canvas Spec 1.0](https://jsoncanvas.org/spec/1.0/)
 - [JSON Canvas GitHub](https://github.com/obsidianmd/jsoncanvas)
+
+### No-Database RAG Vault
+- Pattern: `raw/` (staging) → `compile` → `wiki/` (articles) navigated via
+  `_master-index.md` → `<topic>/_index.md` → article, with `AGENTS.md` encoding
+  the traversal rules. Best for corpuses under ~2,000 documents.

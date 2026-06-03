@@ -22,10 +22,15 @@ This file is the always-loaded core. Two reference files are read **on demand**:
 - **First use only** (no config file yet) or on `notepad: setup` →
   read [`references/setup.md`](references/setup.md).
 - **Obsidian backend only** (`NP_BACKEND=obsidian`) →
-  read [`references/obsidian.md`](references/obsidian.md) for wikilinks,
-  callouts, and the optional `Notes.base` view.
+  read [`references/obsidian.md`](references/obsidian.md). In a vault the
+  notepad runs as a **no-database RAG** (Karpathy-style): captures land in
+  `raw/notepad-ai/`, a manual `compile` step promotes them into a navigable
+  `wiki/`, and queries traverse markdown indexes (`_master-index.md` →
+  `<topic>/_index.md` → article). That file also covers wikilinks, callouts,
+  and the optional `.base` views.
 
-For a plain directory backend you never need `obsidian.md`.
+For a plain directory backend you never need `obsidian.md` — notes stay flat in
+the directory root with a single `INDEX.md`, exactly as documented below.
 
 ---
 
@@ -64,8 +69,13 @@ fi
 config is absent, read [`references/setup.md`](references/setup.md) and run the
 First Run flow before saving anything.
 
-**Important:** all note `.md` files live in the **root** of `$NP`, alongside
-`INDEX.md`. There is no `notes/` subfolder.
+**Important (plain backend):** all note `.md` files live in the **root** of
+`$NP`, alongside `INDEX.md`. There is no `notes/` subfolder.
+
+**Obsidian backend exception:** when `NP_BACKEND=obsidian`, captures live in
+`$NP/raw/notepad-ai/` (the staging zone) and a `compile` step promotes them
+into `$NP/wiki/`. The root-only rule above is for the plain backend; in a vault
+follow [`references/obsidian.md`](references/obsidian.md) instead.
 
 ---
 
@@ -301,6 +311,7 @@ Agent: [read note + transcript → draft inline; does NOT save unless asked]
 | `re-enhance N-017` | Re-read `## Raw` (+ transcript), regenerate above `## Raw`; Raw untouched. **Warn before overwriting** hand edits. |
 | `delete N-017` | Remove note file + INDEX row. Confirm first. |
 | `tag N-017 sales urgent` | Update `tags:` list (keep `notepad-ai` first) + INDEX row |
+| `compile` / `compile notes` | **Obsidian backend only.** Promote staged `raw/notepad-ai/` notes into the `wiki/`. Read `references/obsidian.md`. |
 | `notepad: setup` / `move notepad` | Read `references/setup.md`, re-run First Run |
 
 ### 5. Continuing a Note (Append)
