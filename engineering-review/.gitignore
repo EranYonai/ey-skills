@@ -1,0 +1,5 @@
+# Raw review evidence can contain usernames and verbatim private comments.
+evidence/
+
+__pycache__/
+*.pyc

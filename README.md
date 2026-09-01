@@ -42,6 +42,28 @@ agent's skill set. The agent runs first-run setup the first time you save a note
 
 See [`notepad/SKILL.md`](notepad/SKILL.md) for the full specification.
 
+### `engineering-review` - Evidence-Backed Reviewer Judgment
+
+Learn how real engineers review code from historical GitLab or GitHub feedback,
+then apply that learned judgment without confusing preferences with defects.
+
+**How it works:**
+- Collects substantive review discussions into atomic evidence events
+- Builds separate reviewer, team-principle, convention, and code-surface concepts
+- Preserves disagreements, uncertainty, evidence gaps, and self-labeled severity
+- Runs learned judgment alongside an independent correctness and security pass
+- Keeps raw review evidence local and gitignored
+
+The repository contains only the generic workflow and collection/analysis
+tools. It includes no corpus, principles, reviewers, surfaces, or learned model.
+
+**Quick start:** Copy the `engineering-review/` directory into your agent's skill
+set, then follow [`engineering-review/modes/learn.md`](engineering-review/modes/learn.md)
+to build a model from your own review history.
+
+See [`engineering-review/SKILL.md`](engineering-review/SKILL.md) for the full
+workflow.
+
 ## Philosophy
 
 These skills follow a few principles:
