@@ -1,0 +1,43 @@
+/* @name: Postcard
+   @mood: Cream paper, navy ink and tomato red. Bold condensed capitals and sticker cards with hard shadows; loud and cheerful.
+   @fonts: family=Anton&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700
+   @scene: deep=#111C33 dark=#1C2B4B mid=#2E4A7D gold=#F2B23A gold2=#E0902A ivory=#FFF6E3
+   @confetti: #D7372B #F2B23A #137C83 #1C2B4B #F7A9A0 */
+:root:root:root {
+  --bg: #F3E9D6; --surface: #FFFBF2; --ink: #1C2B4B; --text: #24324F; --muted: #5E6478; --line: #D8CBB0;
+  --accent-ink: #B5301F; --accent: #1C2B4B; --panel: #1C2B4B; --panel2: #2B3F6B; --on-panel: #F3E9D6; --hi: #F2B23A;
+  --pop: #D7372B; --pop-soft: #F7D6C9; --done: #2F6B45; --bar: #1C2B4B; --shadow: 28 43 75; color-scheme: light;
+  --m-sea: #CFE6E0; --m-land: #F3E9D6; --m-edge: #1C2B4B; --m-dest: #F7C2B5; --m-home: #9CC1E6; --stop: #D7372B;
+  --display: "Anton", "Impact", "Arial Narrow", sans-serif; --body: "DM Sans", system-ui, sans-serif;
+  --hero-bg: radial-gradient(rgb(28 43 75 / .09) 1px, transparent 1.3px) 0 0 / 14px 14px, #F3E9D6; --hero-band: #F3E9D6;
+  --hero-ink: #1C2B4B; --hero-hi: #D7372B; --hero-line: #1C2B4B; --scrim: 17 28 51;
+  --wax-a: #EE5A4D; --wax-b: #D7372B; --wax-c: #A62419; --wax-mark: #F2B23A;
+  --c0: #445A86; --c1: #137C83; --c2: #D9821E; --c3: #B2561A; --c4: #2F6B45; --c5: #D7372B;
+  --hard: 4px 4px 0 var(--ink);
+}
+h1, h2, h3, h4, .count b, .iata, .nightsbadge, .daystrip b, .keeps b, .next .cd, .hs-title, .it time, .conv-out, .conv input, .whopick button, .doc-bar b { text-transform: uppercase; letter-spacing: .015em; }
+.hero h1 { line-height: .95; font-size: clamp(60px, 18vw, 96px); }
+.hero h1 .amp { font-style: normal; }
+.hero-in::before { border: 2.5px solid var(--ink); outline: 0; }
+.hero-wave path:nth-child(1) { fill: var(--pop); }
+.count span, .count i { color: var(--ink); }
+.scene-text h2 { font-style: normal; text-shadow: 3px 3px 0 var(--ink); }
+.iata.word { text-transform: none; font-family: var(--body); font-weight: 700; font-size: 21px; }
+.pass, .stay, .panel, .bigbtn, .envrow, .next, .whopick button, .keeps div { border: 2.5px solid var(--ink); box-shadow: var(--hard); border-radius: 8px; }
+.pass, .stay { margin: 6px 6px 10px 2px; }
+.next::after { display: none; }
+.pass > header { border-bottom: 2.5px solid var(--ink); }
+.legmap-wrap { border-bottom: 2.5px solid var(--ink); }
+.btn, .copy, .field, .addform input, .addform select, .daystrip button, .subnav a { border-color: var(--ink); border-width: 2px; border-radius: 6px; }
+.btn { box-shadow: 2px 2px 0 var(--ink); font-weight: 700; }
+.btn.solid { background: var(--pop); color: #fff; border-color: var(--ink); }
+.subnav a.on { background: var(--pop); color: #fff; border-color: var(--ink); box-shadow: 2px 2px 0 var(--ink); }
+.subnav { border-bottom: 2.5px solid var(--ink); }
+.daystrip .on { background: var(--pop); border-color: var(--ink); } .daystrip .on b, .daystrip .on small { color: #fff; }
+.tag { border-width: 2px; border-radius: 3px; }
+.it.idea .tag { background: var(--hi); color: var(--ink); border-color: var(--ink); }
+.tick { border: 2px solid var(--ink); }
+.vhead .sticker, .hero-art .sticker, footer .sticker { filter: drop-shadow(3px 3px 0 var(--ink)); }
+.scene.inset { box-shadow: 0 0 0 2.5px var(--ink), var(--hard); }
+.tabbar { border-top: 3px solid var(--hi); }
+.nights i { border: 2px solid var(--ink); border-radius: 4px; }

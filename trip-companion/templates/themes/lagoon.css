@@ -1,0 +1,39 @@
+/* @name: Lagoon
+   @mood: Turquoise water, coral and sunshine yellow. Round, bouncy and playful; good for families and beach trips.
+   @fonts: family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;500;600;700
+   @scene: deep=#06343C dark=#0B4F5C mid=#19B3A6 gold=#FFE066 gold2=#FFB84D ivory=#FFFDF5
+   @confetti: #FF5C7A #FFC145 #19B3A6 #6C7BD9 #FF8A5B */
+:root:root:root {
+  --bg: #FFF9EC; --surface: #FFFFFF; --ink: #0B4F5C; --text: #1F5560; --muted: #5A808A; --line: #CDEDEA;
+  --accent-ink: #C8401F; --accent: #FF8A5B; --panel: #0B7F7B; --panel2: #19B3A6; --on-panel: #FFFFFF; --hi: #FFE066;
+  --pop: #E83E63; --pop-soft: #FFE7EC; --done: #2E9E5B; --bar: #0B4F5C; --shadow: 11 79 92; color-scheme: light;
+  --m-sea: #D6F3F0; --m-land: #FFF9EC; --m-edge: #9ED6CF; --m-dest: #FFD3DB; --m-home: #C9D2F5; --stop: #E83E63;
+  --display: "Fredoka", "Arial Rounded MT Bold", system-ui, sans-serif; --body: "Nunito", system-ui, sans-serif;
+  --hero-bg: radial-gradient(circle at 16% 78%, rgb(255 255 255 / .14) 0 34px, transparent 35px), radial-gradient(circle at 84% 62%, rgb(255 224 102 / .22) 0 22px, transparent 23px),
+             radial-gradient(circle at 58% 16%, rgb(255 255 255 / .1) 0 48px, transparent 49px), linear-gradient(160deg, #19B3A6, #0B7F7B);
+  --scrim: 6 52 60;
+  --wax-a: #FF7A96; --wax-b: #E83E63; --wax-c: #B8234A; --wax-mark: #FFE066;
+  --c0: #0B7F7B; --c1: #FF8A5B; --c2: #E0A21A; --c3: #E83E63; --c4: #6C7BD9; --c5: #2E9E5B;
+}
+h1, h2, h3, h4, .count b, .iata, .nightsbadge, .daystrip b, .keeps b, .next .cd, .hs-title, .it time, .conv-out, .conv input, .whopick button { font-weight: 600; letter-spacing: 0; }
+.hero h1 { font-size: clamp(50px, 15vw, 82px); line-height: .98; font-weight: 700; }
+.hero h1 .amp { font-style: normal; }
+.hero-in::before { border: 3px dashed rgb(255 255 255 / .55); outline: 0; border-radius: 26px; }
+.hero-wave path:nth-child(1), .scene-edge path:first-child { fill: var(--hi); }
+.scene-text h2 { font-style: normal; font-weight: 700; }
+.pass, .stay, .panel, .bigbtn, .envrow, .next { border-radius: 20px; }
+.pass, .stay { box-shadow: 0 8px 0 var(--line); border-width: 2px; }
+.next::after { border-radius: 15px; border-style: dashed; }
+.btn, .copy, .subnav a, .tag { border-radius: 999px; }
+.btn { border-width: 2px; }
+.field, .addform input, .addform select, .daystrip button { border-radius: 14px; }
+.subnav a { border-width: 2px; }
+.daystrip button { border-width: 2px; }
+.it.pick { border-radius: 16px; }
+.tick { border-width: 2.5px; }
+.scene.inset { border-radius: 18px; }
+.nights i { border-radius: 10px; }
+.keeps div { border-radius: 16px; border-width: 2px; }
+.whopick button { border-radius: 20px; }
+.paper { border-radius: 18px; }
+#toast { border-radius: 999px; }
