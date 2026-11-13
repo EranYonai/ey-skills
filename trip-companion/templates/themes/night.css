@@ -1,0 +1,47 @@
+/* @name: Night market
+   @mood: Deep violet night, lantern garlands, neon pink and mango glows. Dark, lively, a little loud.
+   @fonts: family=Unbounded:wght@500;700;800&family=Outfit:wght@400;500;600;700
+   @scene: deep=#0E0920 dark=#1B1238 mid=#3A2470 gold=#FFB547 gold2=#FF8B47 ivory=#F7ECDD
+   @confetti: #FF5FA2 #FFB547 #3FE0CF #8EE680 #B79CFF */
+:root:root:root {
+  --bg: #120D22; --surface: #1D1636; --ink: #F7ECDD; --text: #E6DAEE; --muted: #A99BC4; --line: #362B58;
+  --accent-ink: #FFB547; --accent: #FF5FA2; --panel: #2A1B4D; --panel2: #4A2A7A; --on-panel: #F7ECDD; --hi: #FFB547;
+  --pop: #FF5FA2; --pop-soft: #3A1838; --done: #8EE680; --bar: #0C081A; --shadow: 0 0 0; color-scheme: dark;
+  --m-sea: #1A2A4A; --m-land: #2A2148; --m-edge: #4D3F7E; --m-dest: #7A2A5C; --m-home: #3E6FB8; --stop: #FF5FA2;
+  --display: "Unbounded", "Avenir Next", system-ui, sans-serif; --body: "Outfit", system-ui, sans-serif;
+  --hero-bg: radial-gradient(120% 80% at 50% 0%, #3A2470 0%, #120D22 70%); --hero-band: #2B1B55; --scrim: 10 6 24;
+  --wax-a: #FF8FC0; --wax-b: #FF5FA2; --wax-c: #C2337A; --wax-mark: #FFE1A8;
+  --c0: #5B4B95; --c1: #17A69A; --c2: #E8962A; --c3: #E0682C; --c4: #4FA65C; --c5: #E0447F;
+  --glow: 0 0 10px rgb(255 95 162 / .55), 0 0 28px rgb(255 95 162 / .3);
+}
+h1, h2, h3, h4, .count b, .iata, .nightsbadge, .daystrip b, .keeps b, .next .cd, .hs-title, .it time, .conv-out, .conv input, .whopick button { font-weight: 700; letter-spacing: -.02em; }
+body { background: radial-gradient(120% 60% at 50% 0%, #1F1540 0%, var(--bg) 60%) fixed, var(--bg); }
+.hero h1 { font-size: clamp(40px, 12.4vw, 66px); line-height: 1; font-weight: 800; text-shadow: 0 0 22px rgb(255 95 162 / .4); }
+.hero h1 .amp { font-style: normal; text-shadow: 0 0 18px rgb(255 181 71 / .7); }
+.hero-in { padding-top: 78px; }
+.hero-in::before { border: 0; outline: 0; inset: 12px 0 auto; height: 60px; animation: twinkle 3s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 20px 34px, #FFB547 6px, rgb(255 181 71 / .35) 9px, transparent 18px) 0 0 / 80px 60px repeat-x,
+              radial-gradient(circle at 60px 42px, #FF5FA2 6px, rgb(255 95 162 / .35) 9px, transparent 18px) 0 0 / 80px 60px repeat-x; }
+.hero-art { top: 64px; }
+.count b { font-size: clamp(52px, 16vw, 76px); text-shadow: 0 0 20px rgb(255 181 71 / .5); }
+.hs-title { font-size: clamp(26px, 7.6vw, 36px) !important; }
+.vhead h2 { font-size: clamp(30px, 8.6vw, 42px); } .sec > h3, .sec-h { font-size: 23px; } .block h3, .next h3 { font-size: 21px; }
+.day-head h3 { font-size: 24px; } .stay h4 { font-size: 18px; } .grp-h h4 { font-size: 17px; } .iata { font-size: 31px; } .iata.word { font-size: 19px; }
+.daystrip b { font-size: 16px; } .nightsbadge { font-size: 18px; } .it time { font-size: 14px; } .next .cd { font-size: 24px; } .sheet h3 { font-size: 22px; }
+.keeps b { font-size: 26px; } .conv-out { font-size: 36px; } .conv input { font-size: 26px; } .whopick button { font-size: 21px; } .paper h3 { font-size: 24px; }
+.scene-text h2 { font-style: normal; font-size: clamp(30px, 9vw, 44px); text-shadow: var(--glow); }
+.pass, .stay, .panel, .bigbtn { border-color: color-mix(in srgb, var(--pop) 40%, var(--line)); box-shadow: 0 10px 30px rgb(0 0 0 / .35), 0 0 22px rgb(255 95 162 / .12); border-radius: 12px; }
+.pass > header { background: linear-gradient(90deg, #4A2A7A, #2A1B4D); }
+.next { background: linear-gradient(135deg, #5A2A7A, #2A1B4D); box-shadow: 0 0 24px rgb(255 95 162 / .3); border-radius: 12px; }
+.next::after { border-radius: 9px; }
+.btn, .copy, .field, .addform input, .addform select, .subnav a, .daystrip button { border-radius: 10px; }
+.btn.solid, .subnav a.on { background: linear-gradient(90deg, var(--pop), #FF8B47); color: #1A0F24; border-color: transparent; box-shadow: 0 0 14px rgb(255 95 162 / .5); }
+.daystrip .on { background: linear-gradient(160deg, var(--pop), #FF8B47); border-color: transparent; } .daystrip .on b, .daystrip .on small { color: #1A0F24; }
+.row.done .tick { background: var(--pop); border-color: var(--pop); } .tick svg { stroke: #1A0F24; }
+.copy.ok { background: var(--pop); color: #1A0F24; }
+.nightsbadge { background: linear-gradient(160deg, var(--pop), #FF8B47); color: #1A0F24; box-shadow: 0 0 16px rgb(255 95 162 / .5); } .nightsbadge small { color: #1A0F24; }
+.nights i { color: #140D22; }
+.vhead .sticker, .hero-art .sticker, footer .sticker { filter: drop-shadow(0 0 10px rgb(255 181 71 / .4)); }
+.conv-out { text-shadow: 0 0 16px rgb(255 95 162 / .5); }
+.m-stop { stroke: #120D22; }
+#toast { background: #2A1B4D; }

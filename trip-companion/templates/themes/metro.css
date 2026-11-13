@@ -1,0 +1,40 @@
+/* @name: Metro
+   @mood: Graphite night and signal yellow, like station signage. Dark, sharp and urban, in condensed capitals.
+   @fonts: family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600;700
+   @scene: deep=#0D0E10 dark=#1A1D21 mid=#3A4048 gold=#FFD400 gold2=#C9A800 ivory=#F4F4F0
+   @confetti: #FFD400 #4FC3F7 #FF5A36 #AED581 #F4F4F0 */
+:root:root:root {
+  --bg: #15171A; --surface: #1F2226; --ink: #F4F4F0; --text: #D9DAD6; --muted: #9A9DA1; --line: #353A41;
+  --accent-ink: #FFD400; --accent: #FFD400; --panel: #FFD400; --panel2: #FFD400; --on-panel: #15171A; --hi: #15171A;
+  --pop: #FF6A45; --pop-soft: #2C201C; --done: #5FD08A; --bar: #0D0E10; --shadow: 0 0 0; color-scheme: dark;
+  --m-sea: #1B2026; --m-land: #2A2F36; --m-edge: #454B54; --m-dest: #5A4A12; --m-home: #1F4E66; --stop: #FF6A45;
+  --display: "Barlow Condensed", "Arial Narrow", "Helvetica Neue", sans-serif; --body: "Barlow", system-ui, sans-serif;
+  --hero-bg: #15171A; --hero-band: #15171A; --hero-ink: #F4F4F0; --hero-hi: #FFD400; --hero-line: #FFD400;
+  --on-bar: #F4F4F0; --bar-hi: #FFD400; --scene-ink: #F4F4F0; --scene-hi: #FFD400; --overlay-ink: #F4F4F0; --overlay-hi: #FFD400;
+  --night-bg: #0D0E10; --scrim: 8 9 10;
+  --wax-a: #FF8A6B; --wax-b: #FF6A45; --wax-c: #C2401F; --wax-mark: #15171A;
+  --c0: #FFD400; --c1: #4FC3F7; --c2: #FF8A65; --c3: #AED581; --c4: #BA68C8; --c5: #FF6A45;
+}
+h1, h2, h3, h4, .count b, .iata, .nightsbadge, .daystrip b, .keeps b, .next .cd, .hs-title, .it time, .conv-out, .conv input, .whopick button, .doc-bar b { font-weight: 700; text-transform: uppercase; letter-spacing: .01em; }
+.hero h1 { font-size: clamp(60px, 18vw, 98px); line-height: .9; }
+.hero h1 .amp { font-style: normal; }
+.hero-in::before { border: 0; outline: 0; border-left: 8px solid var(--hero-hi); inset: 34px auto 56px var(--gut-l); }
+.hero-in { padding-left: calc(var(--gut-l) + 26px); }
+.hero-wave path:nth-child(1) { fill: var(--hero-hi); }
+.scene-text h2 { font-style: normal; font-size: clamp(46px, 13.4vw, 64px); }
+.scene-edge path:first-child { fill: #FFD400; }
+.vhead h2 { font-size: clamp(46px, 13vw, 64px); }
+.iata.word { text-transform: none; font-size: 27px; }
+.pass, .stay, .panel, .bigbtn, .envrow, .next { border-radius: 4px; }
+.pass, .stay { box-shadow: none; }
+.pass > header b { color: #15171A; text-decoration: underline; text-underline-offset: 3px; }
+.next::after { border-color: rgb(21 23 26 / .45); }
+.next .btn, .next .copy { border-color: rgb(21 23 26 / .6); color: #15171A; }
+.subnav a, .daystrip button { border-radius: 999px; } .daystrip button { border-radius: 8px; }
+.btn, .copy, .field, .addform input, .addform select { border-radius: 4px; }
+.tag { border-radius: 2px; }
+.envrow { background: var(--surface); }
+.paper .btn { border-color: #C9A800; }
+.m-stop { stroke: #15171A; }
+.del.sure, .day .tag.now { color: #15171A; }
+.tabbar { border-top: 2px solid #FFD400; }

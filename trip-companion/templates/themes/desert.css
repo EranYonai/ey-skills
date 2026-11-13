@@ -1,0 +1,33 @@
+/* @name: Desert
+   @mood: Terracotta, warm sand and a streak of indigo. Sun-baked and calm, with classical Roman lettering.
+   @fonts: family=Marcellus&family=Karla:wght@400;500;600;700
+   @scene: deep=#3A1A10 dark=#6E2E18 mid=#B4552A gold=#FFD08A gold2=#E8A552 ivory=#FFF1DF
+   @confetti: #C0562A #E8A552 #2E4A8C #FFD08A #7A3E6B */
+:root:root:root {
+  --bg: #F6EBDD; --surface: #FFF8EE; --ink: #4A2414; --text: #5A3424; --muted: #846555; --line: #E3CDB4;
+  --accent-ink: #A0481B; --accent: #C9773E; --panel: #8C3B1E; --panel2: #C0562A; --on-panel: #FFF1DF; --hi: #FFD9A0;
+  --pop: #2E4A8C; --pop-soft: #E4E8F5; --done: #5E7B3A; --bar: #4A2414; --shadow: 74 36 20; color-scheme: light;
+  --m-sea: #DCE6E4; --m-land: #F6EBDD; --m-edge: #D2B798; --m-dest: #F3C9A8; --m-home: #B9C6E6; --stop: #2E4A8C;
+  --display: "Marcellus", "Trajan Pro", Georgia, serif; --body: "Karla", system-ui, sans-serif;
+  --hero-bg: linear-gradient(178deg, #D0703A 0%, #8C3B1E 62%); --scrim: 42 18 10;
+  --wax-a: #4F6DB5; --wax-b: #2E4A8C; --wax-c: #1E3366; --wax-mark: #FFD9A0;
+  --c0: #8C3B1E; --c1: #C9773E; --c2: #B88A2A; --c3: #5E7B3A; --c4: #2E4A8C; --c5: #7A3E6B;
+}
+h1, h2, h3, h4 { letter-spacing: .01em; }
+.hero h1 { font-size: clamp(48px, 14.4vw, 78px); line-height: 1; }
+.hero h1 .amp { font-style: normal; }
+/* Marcellus draws 0 and 1 like the letters O and I, so numbers use the body face */
+.it time, .daystrip b, .count b, .nightsbadge, .keeps b, .next .cd, .conv-out, .conv input, .nights i, .end .time { font-family: var(--body); font-weight: 700; }
+.hero::after { content: ""; position: absolute; left: -10%; right: -10%; bottom: -30px; height: 120px; pointer-events: none; border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  background: rgb(255 217 160 / .14); box-shadow: 120px 28px 0 20px rgb(255 217 160 / .1), -140px 44px 0 30px rgb(74 36 20 / .16); }
+.hero-in::before { border-style: dotted; border-width: 2px; outline: 0; border-color: rgb(255 217 160 / .7); border-radius: 80px 80px 6px 6px; inset: 12px 12px 30px; }
+.hero-in { padding-top: 44px; padding-left: calc(var(--gut-l) + 22px); }
+.hero-art { top: 34px; right: calc(var(--gut-r) + 20px); width: 84px; }
+.scene-text h2 { font-style: normal; letter-spacing: .02em; }
+.vhead h2, .scene-text h2, .hs-title { text-transform: uppercase; letter-spacing: .06em; }
+.vhead h2 { font-size: clamp(32px, 9vw, 46px); } .scene-text h2 { font-size: clamp(32px, 9.4vw, 48px); }
+.pass, .stay, .panel, .bigbtn, .envrow, .next { border-radius: 10px; }
+.btn, .copy, .field, .addform input, .addform select, .subnav a, .daystrip button { border-radius: 18px; }
+.daystrip button { border-radius: 24px 24px 6px 6px; }
+.subnav a { padding-inline: 16px; }
+.tick { border-radius: 8px; }

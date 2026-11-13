@@ -1,0 +1,8 @@
+# build output and private files: never commit these
+dist/
+.cache/
+__pycache__/
+*.pyc
+SECRETS.md
+vendor/
+node_modules/

@@ -1,0 +1,35 @@
+/* @name: Alpine
+   @mood: Fresh snow, glacier blue and a red ski jacket. Crisp, cool and outdoorsy, with geometric poster lettering.
+   @fonts: family=Josefin+Sans:wght@400;600;700&family=Nunito+Sans:wght@400;500;600;700
+   @scene: deep=#0D2238 dark=#16324F mid=#3F74A8 gold=#FFD166 gold2=#E8B04A ivory=#F2F6FA
+   @confetti: #D03A3A #2F6690 #FFD166 #7FC8E8 #FFFFFF */
+:root:root:root {
+  --bg: #F1F5F9; --surface: #FFFFFF; --ink: #16324F; --text: #27425C; --muted: #5F7488; --line: #D3DEE9;
+  --accent-ink: #2A618C; --accent: #86A9CC; --panel: #16324F; --panel2: #3F74A8; --on-panel: #F2F6FA; --hi: #FFD166;
+  --pop: #C9302F; --pop-soft: #FBE6E3; --done: #2E7D5B; --bar: #16324F; --shadow: 22 50 79; color-scheme: light;
+  --m-sea: #DCE8F2; --m-land: #FFFFFF; --m-edge: #B8C9D9; --m-dest: #F6CFCB; --m-home: #A9C4DE; --stop: #C9302F;
+  --display: "Josefin Sans", "Century Gothic", "Avenir Next", sans-serif; --body: "Nunito Sans", system-ui, sans-serif;
+  --hero-bg: linear-gradient(172deg, #4C86BD 0%, #16324F 72%); --scrim: 13 34 56;
+  --wax-a: #E5564F; --wax-b: #C9302F; --wax-c: #96201F; --wax-mark: #FFE7A8;
+  --c0: #5C7A99; --c1: #2F6690; --c2: #3E8E9E; --c3: #7A6FB0; --c4: #2E7D5B; --c5: #C9302F;
+}
+h1, h2, h3, h4, .count b, .iata, .nightsbadge, .daystrip b, .keeps b, .next .cd, .hs-title, .it time, .conv-out, .conv input, .whopick button { font-weight: 700; letter-spacing: 0; }
+h1, h2, .hs-title, .vhead h2 { text-transform: uppercase; letter-spacing: .03em; }
+.hero h1 { font-size: clamp(44px, 13.4vw, 72px); line-height: 1.02; padding-top: 6px; }
+.hero h1 .amp { font-style: normal; font-weight: 400; }
+.hero::after { content: ""; position: absolute; left: 0; right: 0; bottom: 20px; height: 92px; pointer-events: none; opacity: .16; background: #fff;
+  clip-path: polygon(0 100%, 0 62%, 12% 30%, 20% 52%, 33% 6%, 45% 48%, 55% 26%, 66% 58%, 78% 14%, 90% 50%, 100% 34%, 100% 100%); }
+.hero-in::before { border-color: rgb(255 255 255 / .55); outline-color: rgb(255 255 255 / .2); border-radius: 10px; }
+.hero-wave path:nth-child(1) { fill: #fff; }
+.scene-edge path:first-child { fill: #fff; }
+.vhead h2 { font-size: clamp(34px, 9.6vw, 48px); padding-top: .12em; }
+.scene-text h2 { font-style: normal; text-transform: uppercase; font-size: clamp(34px, 10vw, 50px); padding-top: .1em; }
+.iata { padding-top: .12em; } .daystrip b { padding-top: .16em; } .nightsbadge { padding-top: .1em; }
+.pass, .stay, .panel, .bigbtn, .envrow, .next { border-radius: 14px; }
+.pass, .stay { box-shadow: 0 10px 28px rgb(var(--shadow) / .1); border-color: var(--line); }
+.next::after { border-radius: 10px; border-color: rgb(255 255 255 / .35); }
+.btn, .copy, .field, .addform input, .addform select, .subnav a, .daystrip button, .tag { border-radius: 8px; }
+.btn { border-color: var(--accent); }
+.day.is-today .day-head::before, .tabbar .dot { background: var(--pop); }
+.thread i { background: linear-gradient(var(--accent), var(--pop)); }
+.subnav .progress { background: var(--pop); }
